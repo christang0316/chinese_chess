@@ -1,4 +1,4 @@
-TOKEN = "6688204788:AAHgs1fsY9rV0-B7LXZFhXr0MBtRHSJ93zM"
+TOKEN = "Your_Bot_token"  # Modify your bot token here
 
 BLACKCHESS = {'general': '⚫將', 'knight': '⚫士', 'elephant': '⚫象', 'car': '⚫車', 'horse': '⚫馬', 'cannon': '⚫砲',
               'soldier': '⚫卒'}
