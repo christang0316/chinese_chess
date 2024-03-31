@@ -40,7 +40,7 @@
 
 ## 聯絡我
 
-如果你有任何問題或找到任何bugs，歡迎 [聯絡我](christang426859@gmail.com) 。
+如果你有任何問題或找到任何bugs，歡迎 [聯絡我](https://linktr.ee/christang) 。
 
 <br /><br />
 
@@ -90,5 +90,5 @@ This project is based on the assignment of [truckski](https://hackmd.io/@trucksk
 
 ## Contact me
 
-Feel free to [contact me](christang426859@gmail.com) if you have any problems or find any bugs! 
+Feel free to [contact me](https://linktr.ee/christang) if you have any problems or find any bugs! 
 
