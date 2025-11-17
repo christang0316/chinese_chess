@@ -4,43 +4,49 @@
 
 這是一個可以讓使用者在 Telegram 上玩象棋（暗棋）的 Telegram 機器人。
 
-## 安裝
+## 安裝與執行
 
-1. **建立 Telegram 機器人：**
-   - 在 Telegram 中搜尋 `@BotFather`，並申請一個 Telegram 機器人。
+本專案使用 [uv](https://github.com/astral-sh/uv) 進行環境管理與執行，並透過 `.env` 檔案管理 Token。
 
-2. **安裝 Python-telegram-bot：**
-   - 使用 pip 安裝 `python-telegram-bot`：
-     ```bash
-     pip3 install python-telegram-bot
-     ```
-   - macOS 使用者可能會遇到 `CERTIFICATE_VERIFY_FAILED` 錯誤。解決方法是執行以下程式碼：
-     ```bash
-     /Applications/Python\ 3.10/Install\ Certificates.command
-     ```
+1.  **建立機器人與 `.env` 檔案：**
 
-3. **設定 Token：**
-   - 在 `const.py` 中，將 `TOKEN` 更改為你的 Telegram 機器人的 token。
+      * 在 Telegram 中搜尋 `@BotFather`，建立一個新的機器人並取得 `TOKEN`。
+      * 複製專案中的 `.env.example` 檔案，並重新命名為 `.env`。
+        ```bash
+        # macOS / Linux
+        cp .env.example .env
 
-4. **執行程式：**
-   - 執行 `main.py` 程式碼。
+        # Windows (Command Prompt)
+        copy .env.example .env
+        ```
+      * 開啟 `.env` 檔案，將你剛剛取得的 `TOKEN` 填入。
 
-如需更詳細的說明，請參閱 [建立和註冊 Python Telegram Bot](https://hackmd.io/@truckski/SJkxm2gV3#%E5%BB%BA%E7%AB%8B%E5%8F%8A%E8%A8%BB%E5%86%8A-Handler)。
+2.  **安裝 `uv` (如果尚未安裝)：**
+
+      * `uv` 是一個極速的 Python 套件管理工具。請依據[官方文件](https://github.com/astral-sh/uv)安裝它（例如：`pip install uv`）。
+
+3.  **執行專案：**
+
+      * 在專案的根目錄下（有 `pyproject.toml` 的地方），直接執行：
+        ```bash
+        uv run python main.py
+        ```
+      * `uv` 會自動偵測 `pyproject.toml`，建立虛擬環境 (`.venv`)，安裝所有依賴套件，然後執行 `main.py`。
 
 ## 遊玩方式
 
-1. 在聊天室中輸入 `/start`以開始新遊戲。
-2. 使用按鈕進行移動或吃子。
-3. 遊戲規則遵循官方象棋規則。
-4. 若玩家想要中途投降，請輸入 `/surrender`。
+1.  在聊天室中輸入 `/start`以開始新遊戲。
+2.  使用按鈕進行移動或吃子。
+3.  遊戲規則遵循官方象棋規則。
+4.  若玩家想要中途投降，可輸入 `/surrender`。
 
 ## 致謝
 
-本專案是基於 [truckski](https://hackmd.io/@truckski) 出的作業，雖然我不是他的學生（我是幫交大的高中同學寫的，他程式太爛）。
+本專案是基於 [truckski](https://hackmd.io/@truckski) 出的作業，雖然我不是他的學生。
 
 ## 聯絡我
 
-如果你有任何問題或找到任何bugs，歡迎 [聯絡我](https://linktr.ee/christang) 。
+如果你有任何問題或找到任何bugs，歡迎 建立Issues/PR 或 [聯絡我](https://linktr.ee/christang) 。
 
 <br /><br />
 
@@ -54,35 +60,41 @@
 
 This Telegram bot allows users to play Chinese chess within the Telegram messaging platform.
 
-## Installation
+## Installation and Run
 
-1. **Create a Telegram Bot:**
-   - In Telegram, find `@BotFather` to apply for a Telegram Bot.
+This project uses [uv](https://github.com/astral-sh/uv) for environment management and execution, and a `.env` file for token management.
 
-2. **Install Python-telegram-bot:**
-   - Use pip to install `python-telegram-bot`:
-     ```bash
-     pip3 install python-telegram-bot
-      ```
-   - macOS users may encounter a `CERTIFICATE_VERIFY_FAILED` error. To resolve, execute:
-     ```bash
-     /Applications/Python\ 3.10/Install\ Certificates.command
-     ```
+1.  **Create Bot and `.env` File:**
 
-3. **Configure Token:**
-   - In `const.py`, change the `TOKEN` to your Telegram Bot token.
+      * In Telegram, find `@BotFather` to create a new bot and get your `TOKEN`.
+      * Copy the `.env.example` file in this project to a new file named `.env`.
+        ```bash
+        # macOS / Linux
+        cp .env.example .env
 
-4. **Run the Code:**
-   - Execute the `main.py` code.
+        # Windows (Command Prompt)
+        copy .env.example .env
+        ```
+      * Open the new `.env` file and paste in your `TOKEN`.
 
-For more detailed instructions, refer to [Building and Registering Handlers](https://hackmd.io/@truckski/SJkxm2gV3#%E5%BB%BA%E7%AB%8B%E5%8F%8A%E8%A8%BB%E5%86%8A-Handler).
+2.  **Install `uv` (if you haven't):**
+
+      * `uv` is an extremely fast Python package installer and resolver. Install it according to the [official documentation](https://github.com/astral-sh/uv) (e.g., `pip install uv`).
+
+3.  **Run the Project:**
+
+      * From the project's root directory (where `pyproject.toml` is located), simply run:
+        ```bash
+        uv run python main.py
+        ```
+      * `uv` will automatically detect the `pyproject.toml` file, create a virtual environment (`.venv`), install all dependencies, and then execute `main.py`.
 
 ## How to Play
 
-1. Enter `/start` in the chat with your Telegram bot to initiate a new game.
-2. Use buttons to make moves or capture chess pieces.
-3. The game follows the official Chinese chess rules.
-4. To surrender, enter `/surrender`.
+1.  Enter `/start` in the chat with your Telegram bot to initiate a new game.
+2.  Use buttons to make moves or capture chess pieces.
+3.  The game follows the official Chinese chess rules.
+4.  To surrender, enter `/surrender`.
 
 ## Credits
 
@@ -90,5 +102,4 @@ This project is based on the assignment of [truckski](https://hackmd.io/@trucksk
 
 ## Contact me
 
-Feel free to [contact me](https://linktr.ee/christang) if you have any problems or find any bugs! 
-
+Feel free to create issues/ PR or [contact me](https://linktr.ee/christang) if you have any problems or find any bugs\!
