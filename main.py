@@ -253,14 +253,14 @@ async def bot_turn(update, context) -> None:
                 )
                 logger.debug(f"Highest rank threatened and savable: {highest_rank_to_save}")
 
-                # 3. Filter the moves: Keep only those that save a piece *with* that highest rank.
+                # 3. Filter the moves: Keep only those that save a piece with that highest rank.
                 #    (This handles cases where two '車' are threatened; both are valid)
                 best_saving_moves = [
                     move for move in saving_moves
                     if PIECE_RANK[board[move[0]][move[1]]] == highest_rank_to_save
                 ]
 
-                # 4. Choose randomly *from the best moves*
+                # 4. Choose randomly from the best moves
                 #    (e.g., if one '車' has 3 escape routes, pick one randomly)
                 from_r, from_c, to_r, to_c = random.choice(best_saving_moves)
             
@@ -280,7 +280,7 @@ async def bot_turn(update, context) -> None:
     # P3 & P4: REGULAR MOVE or FLIP (Lowest Priority)
     if can_move and can_flip:
         logger.info("Bot Decision: P3/P4 - Random Move/Flip")
-        [bot_choice] = random.choices(["flip", "move"], weights=(65, 35), k=1)
+        [bot_choice] = random.choices(["flip", "move"], cum_weights=[75, 100], k=1)
     
     elif can_move:
         logger.info("Bot Decision: P3 - Forced Move (No pieces to flip)")
